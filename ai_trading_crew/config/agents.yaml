@@ -7,6 +7,7 @@ news_summarizer_agent:
     comprehensive summary of the most important news points for the stock.
     This summary will be used for stock analysis, so include factual and relevant financial information only.
   max_iter: 5
+  allow_delegation: false
   
 sentiment_summarizer_agent:
   role: Social Sentiment Summarizer
@@ -15,6 +16,7 @@ sentiment_summarizer_agent:
   backstory: >
     You specialize in processing noisy social media data. Your task is to ignore any external or outdated context and focus solely on the provided sentiment counts and raw posts IN THE CONTEXT. Base your summary entirely on the data given, without incorporating any additional or irrelevant information.
   max_iter: 5
+  allow_delegation: false
 
 technical_indicator_summarizer_agent:
   role: Technical Indicator Summarizer
@@ -26,6 +28,7 @@ technical_indicator_summarizer_agent:
     any external or outdated context. Base your summary entirely on the provided data, ensuring your analysis delivers
     precise and actionable insights into market trends, momentum, volatility, and other key technical signals.
   max_iter: 5
+  allow_delegation: false
 
 fundamental_analysis_agent:
   role: Fundamental Analysis Expert
@@ -38,6 +41,7 @@ fundamental_analysis_agent:
     incorporating any external or outdated context. Base your summary entirely on the provided data, ensuring your
     analysis delivers precise insights into the company's financial strength, valuation, and investment prospects.
   max_iter: 5
+  allow_delegation: false
 
 timegpt_analyst_agent:
   role: TimeGPT Forecast Analyst
@@ -52,6 +56,7 @@ timegpt_analyst_agent:
     - MUST provide clear directional predictions (bullish/bearish)
     - MUST assess the magnitude of predicted price movement
   max_iter: 5
+  allow_delegation: false
 
 market_overview_agent:
   role: Market Overview Analyst
@@ -68,3 +73,4 @@ market_overview_agent:
     - MUST assess global market trends and correlations
     - MUST provide actionable market context insights
   max_iter: 5
+  allow_delegation: false

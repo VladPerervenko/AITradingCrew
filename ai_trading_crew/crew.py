@@ -51,8 +51,8 @@ class AiArticlesPickerCrew(BaseCrewClass):
 	def relevant_news_filter_task(self) -> Task:
 		task_config = self.tasks_config['relevant_news_filter_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
-			expected_output=task_config['expected_output'].format(symbol=self.symbol),
+			description=task_config['description'],
+			expected_output=task_config['expected_output'],
 			agent=self.relevant_news_filter_agent(),
 			output_file=os.path.join(AGENT_INPUTS_FOLDER, today_str_no_min, f'{self.symbol}_{RELEVANT_ARTICLES_FILE}'),
 			verbose=True
@@ -137,7 +137,7 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 	def news_summarization_task(self) -> Task:
 		task_config = self.tasks_config['news_summarization_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.news_summarizer_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'news_summary_report.md'),
@@ -147,7 +147,7 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 	def sentiment_summarization_task(self) -> Task:
 		task_config = self.tasks_config['sentiment_summarization_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.sentiment_summarizer_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'sentiment_summary_report.md'),
@@ -157,7 +157,7 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 	def technical_indicator_summarization_task(self) -> Task:
 		task_config = self.tasks_config['technical_indicator_summarization_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.technical_indicator_summarizer_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'technical_indicator_summary_report.md'),
@@ -167,7 +167,7 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 	def fundamental_analysis_task(self) -> Task:
 		task_config = self.tasks_config['fundamental_analysis_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.fundamental_analysis_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'fundamental_analysis_summary_report.md'),
@@ -177,7 +177,7 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 	def timegpt_forecast_task(self) -> Task:
 		task_config = self.tasks_config['timegpt_forecast_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.timegpt_analyst_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'timegpt_forecast_summary_report.md'),
@@ -241,7 +241,7 @@ class DayTraderAdvisorCrew:
 	def day_trader_recommendation_task(self) -> Task:
 		task_config = self.tasks_config['day_trader_recommendation_task']
 		return Task(
-			description=task_config['description'].format(symbol=self.symbol),
+			description=task_config['description'],
 			expected_output=task_config['expected_output'],
 			agent=self.day_trader_advisor_agent(),
 			output_file=os.path.join(AGENT_OUTPUTS_FOLDER, today_str_no_min, self.symbol, 'day_trading_recommendation.md'),
