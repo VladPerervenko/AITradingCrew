@@ -62,7 +62,7 @@ class TwelveDataManager:
         try:
             with open(self.company_names_file, 'w') as f:
                 json.dump(self._cached_company_names, f, indent=2)
-            print(f"Saved company names to cache")
+            print("Saved company names to cache")
         except Exception as e:
             print(f"Error saving company names to file: {e}")
     

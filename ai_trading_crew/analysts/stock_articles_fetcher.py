@@ -1,14 +1,9 @@
 import asyncio
 import re
 import random
-import time
 import requests
-import json
 from bs4 import BeautifulSoup
 from crawl4ai import AsyncWebCrawler, CrawlerRunConfig, BrowserConfig
-from io import StringIO
-import sys
-from ai_trading_crew.utils.company_info import get_company_name
 import os
 
 # List of URLs to scrape - focusing on what works
@@ -121,7 +116,7 @@ async def extract_finviz_content(url):
                                         
                                         if article_content:
                                             break
-                                except:
+                                except Exception:
                                     continue
                     
                     if not article_content and iframe_sources:
@@ -468,7 +463,7 @@ async def extract_yahoo_finance_content(url):
         
         async with AsyncWebCrawler() as crawler:
             crawler.config = browser_config
-            print(f"Running AsyncWebCrawler for Yahoo Finance URL...")
+            print("Running AsyncWebCrawler for Yahoo Finance URL...")
             result = await crawler.arun(url=url, config=yahoo_config)
             
             if result and result.success:
@@ -910,73 +905,7 @@ async def main(url_list_to_use=None):
         """
     )
     
-    # SeekingAlpha-specific configuration with article targeting
-    seeking_alpha_config = CrawlerRunConfig(
-        wait_until="domcontentloaded",  # Changed to domcontentloaded to avoid timeout
-        verbose=True,
-        magic=True,
-        simulate_user=True,
-        js_code="""
-        function extractSeekingAlphaArticle() {
-            try {
-                // Check if we're on a SeekingAlpha page
-                if (window.location.href.includes('seekingalpha.com')) {
-                    // Try multiple selectors to find the article content
-                    const selectors = [
-                        'div[data-test-id="article-content"]', 
-                        '.article-content-body', 
-                        '.article__content',
-                        '#article-content-body',
-                        '.paywall-content',
-                        'div.contentbox[id*="article"]',
-                        '.article-body',
-                        '.article'
-                    ];
-                    
-                    for (const selector of selectors) {
-                        const element = document.querySelector(selector);
-                        if (element) {
-                            // Found article content
-                            return element.innerText;
-                        }
-                    }
-                    
-                    // If we can't find the main container, try to get elements separately
-                    let content = '';
-                    
-                    // Try to get the title
-                    const title = document.querySelector('h1.title') || document.querySelector('.title') || document.querySelector('h1');
-                    if (title) {
-                        content += title.innerText + '\\n\\n';
-                    }
-                    
-                    // Try to get all paragraphs that might be article content
-                    const paragraphs = document.querySelectorAll('p');
-                    if (paragraphs && paragraphs.length > 0) {
-                        for (let i = 0; i < Math.min(paragraphs.length, 20); i++) {
-                            const p = paragraphs[i];
-                            if (p.innerText.length > 50) { // Only include substantial paragraphs
-                                content += p.innerText + '\\n\\n';
-                            }
-                        }
-                    }
-                    
-                    if (content) {
-                        return content;
-                    }
-                }
-            } catch (e) {
-                console.log('Error extracting SeekingAlpha article:', e);
-            }
-            return null;
-        }
-        
-        const articleContent = extractSeekingAlphaArticle();
-        if (articleContent) {
-            document.body.innerHTML = `<div id="extracted-article">${articleContent}</div>`;
-        }
-        """
-    )
+    
     
     # Yahoo Finance-specific configuration with article targeting
     yahoo_finance_config = CrawlerRunConfig(
@@ -1163,7 +1092,7 @@ async def main(url_list_to_use=None):
             try:
                 # For SeekingAlpha, directly use our extraction function without the crawler
                 if "seekingalpha.com" in url:
-                    article_output.append(f"Using direct extraction for SeekingAlpha")
+                    article_output.append("Using direct extraction for SeekingAlpha")
                     domain = url.split('/')[2]
                     article_output.append(f"\n--- ARTICLE FROM {domain.upper()} ---\n")
                     article_output.append(f"URL: {url}")
@@ -1175,7 +1104,7 @@ async def main(url_list_to_use=None):
                 
                 # For Yahoo Finance, directly use our extraction function without the crawler
                 if "finance.yahoo.com" in url:
-                    article_output.append(f"Using direct extraction for Yahoo Finance")
+                    article_output.append("Using direct extraction for Yahoo Finance")
                     domain = url.split('/')[2]
                     article_output.append(f"\n--- ARTICLE FROM {domain.upper()} ---\n")
                     article_output.append(f"URL: {url}")
@@ -1187,7 +1116,7 @@ async def main(url_list_to_use=None):
                 
                 # For Benzinga, directly use our extraction function without the crawler
                 if "benzinga.com" in url:
-                    article_output.append(f"Using direct extraction for Benzinga")
+                    article_output.append("Using direct extraction for Benzinga")
                     domain = url.split('/')[2]
                     article_output.append(f"\n--- ARTICLE FROM {domain.upper()} ---\n")
                     article_output.append(f"URL: {url}")
@@ -1201,7 +1130,7 @@ async def main(url_list_to_use=None):
                 
                 # For Finviz, directly use our extraction function without the crawler
                 if "finviz.com" in url:
-                    article_output.append(f"Using direct extraction for Finviz")
+                    article_output.append("Using direct extraction for Finviz")
                     domain = url.split('/')[2]
                     article_output.append(f"\n--- ARTICLE FROM {domain.upper()} ---\n")
                     article_output.append(f"URL: {url}")
@@ -1217,13 +1146,13 @@ async def main(url_list_to_use=None):
                 
                 # Use specialized config based on the domain
                 if "finviz.com" in url:
-                    print(f"Using Finviz-specific configuration")
+                    print("Using Finviz-specific configuration")
                     current_config = finviz_config
                 elif "finance.yahoo.com" in url:
-                    print(f"Using Yahoo Finance-specific configuration")
+                    print("Using Yahoo Finance-specific configuration")
                     current_config = yahoo_finance_config
                 elif "benzinga.com" in url:
-                    print(f"Using Benzinga-specific configuration")
+                    print("Using Benzinga-specific configuration")
                     current_config = benzinga_config
                 
                 crawler.config = current_browser
@@ -1308,14 +1237,6 @@ async def get_stock_news(ticker_symbol,file_path):
         str: A formatted string containing all the extracted articles with clear separations.
     """
    
-    company_name = ""
-    try:
-        company_name = get_company_name(ticker_symbol)
-    except Exception as e:
-        print(f"Error getting company name: {e}")
-        company_name = ticker_symbol  # Fallback to symbol if name lookup fails
-    
- 
     # Extract URLs from the file
     extracted_urls = []
     

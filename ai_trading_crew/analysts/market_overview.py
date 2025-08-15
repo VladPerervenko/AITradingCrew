@@ -1,9 +1,6 @@
-import os
 import requests
 import pandas as pd
-import numpy as np
 from dotenv import load_dotenv
-import json
 from datetime import datetime, timedelta
 import time
 import random
@@ -47,7 +44,7 @@ class HistoricalMarketFetcher:
         # Define TwelveData symbols for each asset
         tickers = {
             "EUR/USD": "EUR/USD",
-           # "Nifty 50": "NIFTY50",  # TwelveData symbol for Nifty 50 index
+            # "Nifty 50": "NIFTY50",  # TwelveData symbol for Nifty 50 index
             #"Shanghai Composite": "000001.SS",  # Shanghai Composite index
             "Bitcoin": "BTC/USD",
             "Gold": "GLD",  # ETF as backup, or XAU/USD

@@ -3,18 +3,16 @@ from datetime import datetime, timedelta
 import pandas_market_calendars as mcal
 from typing import Optional, Tuple, List, Dict
 import logging
-import numpy as np
 import os
 import pickle
 from pandas.tseries.offsets import CustomBusinessDay
 from nixtla import NixtlaClient
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-
-# Import settings from config
 from ai_trading_crew.config import settings, AGENT_INPUTS_FOLDER
 from ai_trading_crew.utils.dates import get_today_str_no_min
 from ai_trading_crew.utils.twelve_data_manager import twelve_data_manager
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 
 def obtain_market_schedule(start_date: datetime, end_date: datetime, market: Optional[str] = "NYSE") -> pd.DataFrame:
@@ -263,7 +261,6 @@ class TwelveDataHandler:
                     data[col] = data[col].round(2)
 
             self.symbol_data[symbol] = data
-            missing_count = len(missing) if missing is not None else 0
 
 
     def run(self) -> pd.DataFrame:
@@ -298,4 +295,3 @@ class TwelveDataHandler:
 
         combined_file_path = os.path.join(self.data_folder, 'combined.csv')
         self.combined_df.to_csv(combined_file_path, index=False)
-       

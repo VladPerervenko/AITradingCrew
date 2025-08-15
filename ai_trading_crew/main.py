@@ -1,127 +1,108 @@
 #!/usr/bin/env python
 import asyncio
-import os
-import sys
 import warnings
 import pytz
-import pandas as pd
 import datetime
+from dotenv import load_dotenv
+import typer
+from typing_extensions import Annotated
+
 from ai_trading_crew.config import settings
 from ai_trading_crew.analysts.market_overview import HistoricalMarketFetcher
 from ai_trading_crew.market_overview_agents import MarketOverviewAnalyst
-from ai_trading_crew.stock_processor import process_stock_symbol_sync as process_stock_symbol, process_stock_symbol as process_stock_symbol_async
+from ai_trading_crew.stock_processor import process_stock_symbol
 from ai_trading_crew.crew import StockComponentsSummarizeCrew
 from ai_trading_crew.analysts.timegpt import get_timegpt_forecast
 
+# Load environment variables
+load_dotenv()
+
+# Suppress specific warnings
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
+# Create a Typer application
+app = typer.Typer()
 
+
+async def run_crew_async():
+    """
+    The core asynchronous function to run the crew.
+    """
+    print(f"Kicking off AI Trading Crew for symbols: {settings.SYMBOLS}")
+    start_time = datetime.datetime.now()
+
+    vix_data = HistoricalMarketFetcher().get_vix(days=30)
+    global_market_data = HistoricalMarketFetcher().get_global_market(days=30)
+    get_timegpt_forecast()
+
+    market_analyst = MarketOverviewAnalyst()
+    market_agent, market_task = market_analyst.get_agent_and_task()
+
+    print(f"Processing market overview symbol: {settings.STOCK_MARKET_OVERVIEW_SYMBOL}")
+    await process_stock_symbol(
+        settings.STOCK_MARKET_OVERVIEW_SYMBOL,
+        vix_data=vix_data,
+        global_market_data=global_market_data,
+        additional_agents=[market_agent],
+        additional_tasks=[market_task]
+    )
+    print("Market overview processing complete.")
+
+    print(f"Starting concurrent processing for {len(settings.SYMBOLS)} symbols...")
+    tasks = [process_stock_symbol(symbol) for symbol in settings.SYMBOLS]
+    await asyncio.gather(*tasks)
+
+    end_time = datetime.datetime.now()
+    print(f"\n🎉 Crew run complete. Total execution time: {end_time - start_time}")
+
+
+@app.command()
 def run():
-    """
-    Run the crew using async for maximum performance.
-    """
-    asyncio.run(run_async_execution())
-    
-
-async def run_async_execution():
-    """
-    Run the crew asynchronously with concurrent processing.
-    """
-    
-    vix_data = HistoricalMarketFetcher().get_vix(days=30)
-    global_market_data = HistoricalMarketFetcher().get_global_market(days=30)
-    
-    # Create market overview analyst for additional agents/tasks
-    market_analyst = MarketOverviewAnalyst()
-    market_agent, market_task = market_analyst.get_agent_and_task()
-    
-    # Get TimeGPT forecasts (calls API once per day, uses cache thereafter)
-    timegpt_forecasts = get_timegpt_forecast()
-    
-    # Process market overview first
-    await process_stock_symbol_async(
-        settings.STOCK_MARKET_OVERVIEW_SYMBOL,
-        vix_data=vix_data,
-        global_market_data=global_market_data,
-        additional_agents=[market_agent],
-        additional_tasks=[market_task]
-    )
-    
-    # Process individual symbols concurrently for maximum performance
-    tasks = []
-    for symbol in settings.SYMBOLS:
-        task = process_stock_symbol_async(symbol)
-        tasks.append(task)
-    
-    # Wait for all symbol processing to complete
-    await asyncio.gather(*tasks)
+    """Main entry point to run the full trading crew analysis."""
+    asyncio.run(run_crew_async())
 
 
-async def run_async():
-    """
-    Run the crew asynchronously for better performance.
-    """
-    
-    # Keep only essential data as requested
-    vix_data = HistoricalMarketFetcher().get_vix(days=30)
-    global_market_data = HistoricalMarketFetcher().get_global_market(days=30)
-    
-    # Create market overview analyst for additional agents/tasks
-    market_analyst = MarketOverviewAnalyst()
-    market_agent, market_task = market_analyst.get_agent_and_task()
-    
-    # Process market overview symbol first
-    await process_stock_symbol_async(
-        settings.STOCK_MARKET_OVERVIEW_SYMBOL,
-        vix_data=vix_data,
-        global_market_data=global_market_data,
-        additional_agents=[market_agent],
-        additional_tasks=[market_task]
-    )
-    
-    # Process individual symbols concurrently for maximum performance
-    tasks = []
-    for symbol in settings.SYMBOLS:
-        task = process_stock_symbol_async(symbol)
-        tasks.append(task)
-    
-    # Wait for all symbol processing to complete
-    await asyncio.gather(*tasks)
-
-
-def train():
-    """
-    Train the crew for a given number of iterations.
-    """
+@app.command()
+def train(n_iterations: Annotated[int, typer.Option(help="Number of training iterations")], 
+          filename: Annotated[str, typer.Option(help="Filename to save the training data")]):
+    """Train the crew for a given number of iterations."""
+    print(f"Starting training for {n_iterations} iterations, saving to {filename}...")
     inputs = {
         'symbol': settings.SYMBOLS,
         'current_time_est': datetime.datetime.now(pytz.timezone('US/Eastern')).strftime("%Y-%m-%d %H:%M:%S")
     }
     
     StockComponentsSummarizeCrew().crew().train(
-        n_iterations=int(sys.argv[1]),
-        filename=sys.argv[2],
+        n_iterations=n_iterations,
+        filename=filename,
         inputs=inputs
     )
+    print("Training complete.")
 
-def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    StockComponentsSummarizeCrew().crew().replay(task_id=sys.argv[1])
 
-def test():
-    """
-    Test the crew execution and returns the results.
-    """
+@app.command()
+def replay(task_id: Annotated[str, typer.Argument(help="The ID of the task to replay")]):
+    """Replay the crew execution from a specific task."""
+    print(f"Replaying crew execution from task: {task_id}")
+    StockComponentsSummarizeCrew().crew().replay(task_id=task_id)
+    print("Replay complete.")
+
+
+@app.command()
+def test(n_iterations: Annotated[int, typer.Option(help="Number of test iterations")], 
+         openai_model_name: Annotated[str, typer.Option(help="Name of the OpenAI model to use for testing")]):
+    """Test the crew execution."""
+    print(f"Starting test with {n_iterations} iterations using model {openai_model_name}...")
     inputs = {
         "topic": "AI LLMs"
     }
-    StockComponentsSummarizeCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+    StockComponentsSummarizeCrew().crew().test(
+        n_iterations=n_iterations, 
+        openai_model_name=openai_model_name, 
+        inputs=inputs
+    )
+    print("Test complete.")
 
 
-def run_fast():
-    """
-    Run the crew using async for maximum performance.
-    """
-    asyncio.run(run_async())
+if __name__ == "__main__":
+    app()

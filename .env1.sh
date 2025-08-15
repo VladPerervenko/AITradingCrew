@@ -1,0 +1,10 @@
+# LLM Provider (OpenRouter recommended)
+OPENROUTER_API_KEY = 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
+OPENROUTER_DEEPSEEK_R1=deepseek/deepseek-r1:free
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+
+# Data Providers
+TWELVE_API_KEY= 06023a7d9d294c879da0ff26034da9ff
+TIMEGPT_API_KEY= nixtla-tok-oO9AAdhUucDmkFNOPor0NTs8i3gnw2XeOiIIYHUlkYOYHjxUVqY8T4KRzC7I7RIrXQsjRUTKMQoFc86f 
+RAPID_API_KEY= 427c7faa7bmshac7c567f35f2667p1e47d6jsn83598eb75717
+

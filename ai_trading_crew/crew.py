@@ -2,9 +2,8 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 import os
 import yaml
-from ai_trading_crew.config import settings, DEFAULT_STOCKTWITS_LLM, PROJECT_LLM, DEFAULT_TI_LLM, DEEPSEEK_OPENROUTER_LLM, AGENT_OUTPUTS_FOLDER, AGENT_INPUTS_FOLDER, RELEVANT_ARTICLES_FILE, LOG_FOLDER
+from ai_trading_crew.config import DEFAULT_STOCKTWITS_LLM, PROJECT_LLM, DEFAULT_TI_LLM, DEEPSEEK_OPENROUTER_LLM, AGENT_OUTPUTS_FOLDER, AGENT_INPUTS_FOLDER, RELEVANT_ARTICLES_FILE, LOG_FOLDER
 from ai_trading_crew.utils.dates import get_today_str, get_yesterday_str, get_today_str_no_min
-import inspect
 
 today_str = get_today_str()
 yesterday_str = get_yesterday_str()
@@ -21,7 +20,6 @@ def ensure_log_date_folder():
 		os.makedirs(log_date_folder)
 	return log_date_folder
 
-
 class BaseCrewClass:
 	"""Base class for all AI trading crews"""
 	
@@ -31,12 +29,10 @@ class BaseCrewClass:
 		self.stocktwit_llm = stocktwit_llm
 		self.technical_ind_llm = technical_ind_llm
 
-
-
 @CrewBase
 class AiArticlesPickerCrew(BaseCrewClass):
 	"""AiTradingCrew crew base"""
-	
+	# Configuration files for agents and tasks
 	agents_config = 'config/agents_article.yaml'
 	tasks_config = 'config/tasks_article.yaml'
 
@@ -54,7 +50,6 @@ class AiArticlesPickerCrew(BaseCrewClass):
 	@task  # UN-commented but kept inactive through crew configuration
 	def relevant_news_filter_task(self) -> Task:
 		config = self.tasks_config['relevant_news_filter_task'].copy()
-		
 		return Task(
 			config=config,
 			output_file=os.path.join(AGENT_INPUTS_FOLDER, today_str_no_min, f'{self.symbol}_{RELEVANT_ARTICLES_FILE}'),
@@ -76,7 +71,7 @@ class AiArticlesPickerCrew(BaseCrewClass):
 @CrewBase
 class StockComponentsSummarizeCrew(BaseCrewClass):
 	"""AiTradingCrew crew"""
-	
+	# Configuration files for agents and tasks
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
@@ -126,7 +121,6 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 			llm=PROJECT_LLM
 		)
 
-
 	@task
 	def news_summarization_task(self) -> Task:
 		return Task(
@@ -135,7 +129,6 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 			verbose=True,
 			
 		)
-
 
 	@task  # UN-commented but kept inactive through crew configuration
 	def sentiment_summarization_task(self) -> Task:
@@ -177,7 +170,6 @@ class StockComponentsSummarizeCrew(BaseCrewClass):
 			verbose=True,
 		
 		)
-
 
 	@crew
 	def crew(self) -> Crew:

@@ -1,0 +1,1195 @@
+
+(crew) PS C:\Users\user\AITradingCrew> python -m ai_trading_crew.main
+🚀 Запускаю AI Trading Crew для символов: ['AAPL', 'NVDA', 'MSFT', 'AMZN', 'GLD', 'GOOGL', 'TSLA']
+Fetching fresh data for MCHI from Twelve Data API
+Saved data for MCHI to cache
+Fetching fresh data for INDA from Twelve Data API
+Saved data for INDA to cache
+Fetching fresh data for IEF from Twelve Data API
+Saved data for IEF to cache
+Loading TimeGPT forecasts from cache...
+C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\site-packages\dateutil\parser\_parser.py:1207: UnknownTimezoneWarning: tzname ET identified but not understood.  Pass `tzinfos` argument in order to correctly return a timezone-aware datetime.  In a future version, this will raise an exception.
+  warnings.warn("tzname {tzname} identified but not understood.  "
+📦 raw_news (SPY): News for SPDR S&P 500 ETF Trust since 2025-07-29 18:00:
+
+1. [Finviz] These ETFs will give you high income - but you need to learn about their strategies first
+   Published: 2025-07-30 07:03:00 EDT
+   URL: https://www.marketwatch.com/story/these-etfs-will-give-you-high-income-but-you-need-to-learn-ab
+📏 Тип raw_news: <class 'str'>
+╭─────────────────────────────────────────────── Crew Execution Started ───────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Started                                                                                              │
+│  Name: crew                                                                                                          │
+│  ID: ccfabbdb-a3d3-40e9-8394-54a31b394a7a                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: Relevant Financial News Filter
+## Task: Review the news data for SPDR S&P 500 ETF Trust and identify ONLY the top 10 news articles that are  most
+likely to impact the stock price on 2025-07-30 07:28.
+STRICT RULES: 1. ONLY accept URLs from EXACTLY these domains: finviz.com, benzinga.com 2. IMMEDIATELY REJECT any URL
+containing "yahoo" or "finance.yahoo.com" - NO EXCEPTIONS 3. REJECT any URL from seekingalpha.com or any other domain
+not explicitly approved 4. For each URL, verify it contains ONLY one of the three approved domains before including it
+Discard ALL articles from other sources. Avoid duplicate news (same news from different sources). Select articles with
+the highest potential impact on SPDR S&P 500 ETF Trust's stock price today.
+Here is the news data to analyze:
+News for SPDR S&P 500 ETF Trust since 2025-07-29 18:00:
+
+1. [Finviz] These ETFs will give you high income - but you need to learn about their strategies first
+   Published: 2025-07-30 07:03:00 EDT
+   URL:
+https://www.marketwatch.com/story/these-etfs-will-give-you-high-income-but-you-need-to-learn-about-their-strategies-firs
+t-03b28066?mod=mw_FV
+
+2. [Seeking Alpha] Trump signals 20-25% tariff on India, saying 'they're my friends'
+   Published: 2025-07-30 03:10:07 EDT
+   URL: https://seekingalpha.com/news/4474001-trump-signals-20-25-tariff-on-india-saying-theyre-my-friends
+
+3. [Seeking Alpha] U.S. allowed Nvidia chip shipments to China, White House adviser says
+   Published: 2025-07-30 02:42:56 EDT
+   URL: https://seekingalpha.com/news/4474004-us-allowed-nvidia-chip-shipments-to-china-white-house-adviser-says
+
+4. [MarketWatch - Other Sources] LG Energy Solution Signs $4.3 Billion LFP Battery Deal with Tesla
+   Published: 2025-07-29 23:30:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014797/lg-energy-solution-signs-43-billion-lfp-battery-deal-with-tesla?r=4bf001661e6fdd8
+8d0cd7a5659ff9748&mod=mw_quote_news
+
+5. [MarketWatch - Other Sources] Japanese Nikkei 225 Index Rises Led by Brokerage Stocks
+   Published: 2025-07-29 21:30:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014747/japanese-nikkei-225-index-rises-led-by-brokerage-stocks?r=4bf001661e6fdd88d0cd7a5
+659ff9748&mod=mw_quote_news
+
+6. [MarketWatch - Other Sources] U.S. Job Openings Decline, Labor Market Cools Down
+   Published: 2025-07-29 18:50:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014563/us-job-openings-decline-labor-market-cools-down?r=4bf001661e6fdd88d0cd7a5659ff974
+8&mod=mw_quote_news
+
+
+
+🚀 Crew: crew
+└── 📋 Task: f1a24e84-a4e9-4c37-baf5-be34566f6bfe
+🚀 Crew: crew
+└── 📋 Task: f1a24e84-a4e9-4c37-baf5-be34566f6bfe
+    Status: Executing Task...
+    └── 🧠 Thinking...14:28:39 - LiteLLM:INFO: utils.py:1185 - Wrapper: Completed Call, calling success_handler
+14:28:39 - LiteLLM:INFO: cost_calculator.py:655 - selected model name for cost calculation: openai/openai-fast
+🚀 Crew: crew
+└── 📋 Task: f1a24e84-a4e9-4c37-baf5-be34566f6bfe
+
+
+🚀 Crew: crew
+└── 📋 Task: f1a24e84-a4e9-4c37-baf5-be34566f6bfe
+# Agent: Relevant Financial News Filter
+## Final Answer:
+No relevant articles found from approved sources.
+
+
+🚀 Crew: crew
+└── 📋 Task: f1a24e84-a4e9-4c37-baf5-be34566f6bfe
+    Assigned to: Relevant Financial News Filter
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: f1a24e84-a4e9-4c37-baf5-be34566f6bfe                                                                          │
+│  Agent: Relevant Financial News Filter                                                                               │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────── Crew Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Completed                                                                                            │
+│  Name: crew                                                                                                          │
+│  ID: ccfabbdb-a3d3-40e9-8394-54a31b394a7a                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Error decoding StockTwits API response: Expecting value: line 1 column 1 (char 0)
+╭─────────────────────────────────────────────── Crew Execution Started ───────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Started                                                                                              │
+│  Name: crew                                                                                                          │
+│  ID: 97e4cae1-5264-42d1-acda-de2ce9a17d5d                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: News Summarizer
+## Task: Generate a concise bullet-point summary highlighting the key financial news for SPDR S&P 500 ETF Trust. Focus
+ONLY on analyzing and summarizing information specifically about SPDR S&P 500 ETF Trust based on the provided data.
+Since the news articles were fetched using an automated web browser (like Selenium), they may contain irrelevant
+information  such as advertisements or mentions of other companies, especially at the beginning or end of articles -
+please ignore these. Deduplicate any repeated information between articles and headlines. This summary will be used for
+stock analysis, so include factual and relevant financial information only. This is the ONLY data you must use for your
+requested task:
+No URLs found in output/agents_inputs\2025-07-30\SPY_relevant_articles.txt
+
+News for SPDR S&P 500 ETF Trust since 2025-07-29 18:00:
+
+1. [Finviz] These ETFs will give you high income - but you need to learn about their strategies first
+   Published: 2025-07-30 07:03:00 EDT
+   URL:
+https://www.marketwatch.com/story/these-etfs-will-give-you-high-income-but-you-need-to-learn-about-their-strategies-firs
+t-03b28066?mod=mw_FV
+
+2. [Seeking Alpha] Trump signals 20-25% tariff on India, saying 'they're my friends'
+   Published: 2025-07-30 03:10:07 EDT
+   URL: https://seekingalpha.com/news/4474001-trump-signals-20-25-tariff-on-india-saying-theyre-my-friends
+
+3. [Seeking Alpha] U.S. allowed Nvidia chip shipments to China, White House adviser says
+   Published: 2025-07-30 02:42:56 EDT
+   URL: https://seekingalpha.com/news/4474004-us-allowed-nvidia-chip-shipments-to-china-white-house-adviser-says
+
+4. [MarketWatch - Other Sources] LG Energy Solution Signs $4.3 Billion LFP Battery Deal with Tesla
+   Published: 2025-07-29 23:30:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014797/lg-energy-solution-signs-43-billion-lfp-battery-deal-with-tesla?r=4bf001661e6fdd8
+8d0cd7a5659ff9748&mod=mw_quote_news
+
+5. [MarketWatch - Other Sources] Japanese Nikkei 225 Index Rises Led by Brokerage Stocks
+   Published: 2025-07-29 21:30:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014747/japanese-nikkei-225-index-rises-led-by-brokerage-stocks?r=4bf001661e6fdd88d0cd7a5
+659ff9748&mod=mw_quote_news
+
+6. [MarketWatch - Other Sources] U.S. Job Openings Decline, Labor Market Cools Down
+   Published: 2025-07-29 18:50:00 EDT
+   URL:
+https://www.gurufocus.com/news/3014563/us-job-openings-decline-labor-market-cools-down?r=4bf001661e6fdd88d0cd7a5659ff974
+8&mod=mw_quote_news
+
+
+
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+    Status: Executing Task...
+    └── 🧠 Thinking...14:29:03 - LiteLLM:INFO: utils.py:1185 - Wrapper: Completed Call, calling success_handler
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+
+
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+# Agent: News Summarizer
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+## Final Answer:
+- No specific updates or changes directly affecting the SPDR S&P 500 ETF Trust (SPY) were reported in the recent news
+articles; the headlines primarily focus on macroeconomic and geopolitical developments.
+- Market-wide factors such as US job market cooling, with declining job openings indicating a softer labor market, could
+influence investor sentiment and the performance of SPY.
+- Broader international and trade policy developments, including potential tariffs on India and U.S. approval of Nvidia
+chip shipments to China, may impact sectors within the S&P 500, indirectly affecting SPY.
+- The news regarding high-income ETFs and strategies suggests investors are exploring income-focused investment options,
+which may influence ETF flows and investor interest in SPY.
+- Overall, there are no specific fundamental or technical updates regarding SPY; investors should monitor macroeconomic
+trends, trade policies, and sector performance for potential impacts on the ETF.
+
+
+🚀 Crew: crew
+└── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+    Assigned to: News Summarizer
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: 67f615f2-70ba-49bb-bd4f-5935a7532bf1                                                                          │
+│  Agent: News Summarizer                                                                                              │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: Social Sentiment Summarizer
+## Task: Using the provided social media sentiment data—which includes numerical counts and a list of messages— generate
+a comprehensive narrative summary of the social sentiment for SPDR S&P 500 ETF Trust. Base your analysis solely on this
+data without referencing any external information. This is the ONLY data you must use for your requested task :
+{
+  "symbol": "SPY",
+  "sentiment_summary": {
+    "bullish_count": 0,
+    "bearish_count": 0,
+    "neutral_count": 0
+  },
+  "messages": []
+}
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+└── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+# Agent: Social Sentiment Summarizer
+## Final Answer:
+Based solely on the provided sentiment data, the overall social sentiment for the SPDR S&P 500 ETF Trust (SPY) appears
+to be neutral and indeterminate, with no expressed bullish, bearish, or neutral sentiments from social media users. The
+sentiment counts are all zero, indicating a lack of active or explicit opinion, discussion, or emotional stance towards
+SPY within the monitored social channels. Additionally, the absence of messages suggests that there is currently no
+notable social engagement, commentary, or sentiment-driven activity related to this ETF. In summary, the social
+sentiment landscape for SPY at this moment is entirely dormant, reflecting neither enthusiasm nor concern among social
+media participants.
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+└── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+    Assigned to: Social Sentiment Summarizer
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: d85a8860-9eea-4c25-b43a-d9ac75aa7208                                                                          │
+│  Agent: Social Sentiment Summarizer                                                                                  │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: Technical Indicator Summarizer
+## Task: Using the provided technical indicator data—which includes detailed pricing, volume, and a comprehensive set of
+technical metrics such as daily statistics, moving averages, oscillators, and other key indicators—generate a narrative
+summary of the technical performance for SPDR S&P 500 ETF Trust. Base your analysis solely on this data without
+referencing any external information. This is the ONLY data you must use for your task:
+The current price for SPDR S&P 500 ETF Trust is 635.26001
+Quote Summary for SPY - SPDR S&P 500 ETF Trust:
+• Exchange: NYSE (ARCX)
+• Currency: USD
+
+Daily Statistics on 2025-07-28 :
+• Open: 638.34998
+• High: 638.66998
+• Low: 634.34003
+• Close: 635.26001
+• Previous Close: 636.94000
+• Change: -1.67999 (-0.26375996%)
+
+Volume Information:
+• Current Volume: 60514000
+• Average Volume: 66103070
+
+52-Week Performance:
+• Low: 481.79999
+• High: 638.66998
+• Low Change: 153.46002 (31.85140%)
+• High Change: -3.40997 (-0.53391787%)
+• Range: 481.799988 - 638.669983
+
+Technical Indicators as of 2025-07-30:
+• adx: ADX with time_period of 21 days has a latest value of 24.2073 on 2025-07-30.
+• bbands: BBANDS with time_period of 20 days, sd of 2.0 and ma_type sma has an upper_band value of 638.8524, middle_band
+value of 628.1405, and lower_band value of 617.4286 on 2025-07-30.
+• ema: EMA with time_period of 10 days has a value of 632.5931 on 2025-07-30.
+• macd: MACD with fast_period 12, slow_period 26 and signal_period 9 has a macd value of 7.5211, macd_signal of 7.7436
+and macd_hist of -0.2225 on 2025-07-30.
+• percent_b: PERCENT_B with time_period of 21 days, sd of 2.0 and ma_type sma has a value of 0.8417 on 2025-07-30.
+• rsi: RSI with time_period of 21 days has a value of 68.687 on 2025-07-30.
+• sma: SMA with time_period of 21 days has a value of 627.7743 on 2025-07-30.
+• stoch: STOCH with fast_k_period 14, slow_k_period 1 and slow_d_period 3 has slow_k value of 83.4627 and slow_d value
+of 87.1409 on 2025-07-30.
+• cci: CCI with time_period of 20 days has a value of 114.6006 on 2025-07-30.
+• sar: SAR has a value of 628.3223 on 2025-07-30.
+• stochrsi: STOCHRSI with rsi_length 21, stoch_length 14, k_period 3 and d_period 3 has values of k: 0.0 and d: 28.4598
+on 2025-07-30.
+• ichimoku: ICHIMOKU with conversion_line_period 9, base_line_period 26, leading_span_b_period 52, lagging_span_period
+26 has senkou_span_a of 595.7975, senkou_span_b of 558.155 on 2025-07-30.
+• mfi: MFI with time_period of 14 days has a value of 68.0064 on 2025-07-30.
+• obv: OBV has a value of 8319735100.0 on 2025-07-30.
+• mom: MOM with time_period of 10 days has a value of 11.04 on 2025-07-30.
+• willr: WILLR with time_period of 14 days has a value of -16.5373 on 2025-07-30.
+
+==================================================
+HISTORICAL DATA
+==================================================
+
+SPY closing price values for the last 30 days:
+* 2025-06-19: 597.44
+* 2025-06-20: 594.28
+* 2025-06-23: 600.15
+* 2025-06-24: 606.78
+* 2025-06-25: 607.12
+* 2025-06-26: 611.87
+* 2025-06-27: 614.91
+* 2025-06-30: 617.85
+* 2025-07-01: 617.65
+* 2025-07-02: 620.45
+* 2025-07-03: 625.34
+* 2025-07-04: 625.34
+* 2025-07-07: 620.68
+* 2025-07-08: 620.34
+* 2025-07-09: 624.06
+* 2025-07-10: 625.82
+* 2025-07-11: 623.62
+* 2025-07-14: 624.81
+* 2025-07-15: 622.14
+* 2025-07-16: 624.22
+* 2025-07-17: 628.04
+* 2025-07-18: 627.58
+* 2025-07-21: 628.77
+* 2025-07-22: 628.86
+* 2025-07-23: 634.21
+* 2025-07-24: 634.42
+* 2025-07-25: 637.1
+* 2025-07-28: 636.94
+* 2025-07-29: 635.26
+* 2025-07-30: 635.26 (LATEST PRICE VALUE, Daily change from previous day: 0.00%)
+
+
+ADX with time_period of 21 days values for the last 30 days:
+* 2025-06-19: 12.3761
+* 2025-06-20: 11.793
+* 2025-06-23: 11.315
+* 2025-06-24: 11.3454
+* 2025-06-25: 11.4213
+* 2025-06-26: 11.7182
+* 2025-06-27: 12.2323
+* 2025-06-30: 12.874
+* 2025-07-01: 13.4851
+* 2025-07-02: 14.159
+* 2025-07-03: 15.0999
+* 2025-07-04: 15.996
+* 2025-07-07: 16.4024
+* 2025-07-08: 16.7895
+* 2025-07-09: 17.3104
+* 2025-07-10: 17.9281
+* 2025-07-11: 18.3619
+* 2025-07-14: 18.7933
+* 2025-07-15: 19.3683
+* 2025-07-16: 19.4863
+* 2025-07-17: 19.8299
+* 2025-07-18: 20.2223
+* 2025-07-21: 20.7211
+* 2025-07-22: 20.9578
+* 2025-07-23: 21.4568
+* 2025-07-24: 22.0429
+* 2025-07-25: 22.6819
+* 2025-07-28: 23.3169
+* 2025-07-29: 23.7729
+* 2025-07-30: 24.2073 (LATEST ADX VALUE)
+
+
+BBANDS (Middle Band) with time_period of 20 days values for the last 30 days:
+* 2025-06-19: 594.671
+* 2025-06-20: 595.4295
+* 2025-06-23: 596.4815
+* 2025-06-24: 597.263
+* 2025-06-25: 598.2325
+* 2025-06-26: 599.3235
+* 2025-06-27: 600.5995
+* 2025-06-30: 601.8565
+* 2025-07-01: 602.9345
+* 2025-07-02: 604.1605
+* 2025-07-03: 605.775
+* 2025-07-04: 607.085
+* 2025-07-07: 608.135
+* 2025-07-08: 608.998
+* 2025-07-09: 610.133
+* 2025-07-10: 611.2365
+* 2025-07-11: 612.5675
+* 2025-07-14: 613.674
+* 2025-07-15: 614.9045
+* 2025-07-16: 616.2435
+* 2025-07-17: 617.7735
+* 2025-07-18: 619.4385
+* 2025-07-21: 620.8695
+* 2025-07-22: 621.9735
+* 2025-07-23: 623.328
+* 2025-07-24: 624.4555
+* 2025-07-25: 625.565
+* 2025-07-28: 626.5195
+* 2025-07-29: 627.4
+* 2025-07-30: 628.1405 (LATEST BBANDS (MIDDLE BAND) VALUE)
+
+
+EMA with time_period of 10 days values for the last 30 days:
+* 2025-06-19: 598.0473
+* 2025-06-20: 597.3624
+* 2025-06-23: 597.8692
+* 2025-06-24: 599.4893
+* 2025-06-25: 600.8767
+* 2025-06-26: 602.8755
+* 2025-06-27: 605.0636
+* 2025-06-30: 607.3884
+* 2025-07-01: 609.2541
+* 2025-07-02: 611.2898
+* 2025-07-03: 613.8443
+* 2025-07-04: 615.9345
+* 2025-07-07: 616.7973
+* 2025-07-08: 617.4414
+* 2025-07-09: 618.6448
+* 2025-07-10: 619.9494
+* 2025-07-11: 620.6168
+* 2025-07-14: 621.3792
+* 2025-07-15: 621.5175
+* 2025-07-16: 622.0089
+* 2025-07-17: 623.1054
+* 2025-07-18: 623.919
+* 2025-07-21: 624.801
+* 2025-07-22: 625.539
+* 2025-07-23: 627.1155
+* 2025-07-24: 628.4436
+* 2025-07-25: 630.0175
+* 2025-07-28: 631.2761
+* 2025-07-29: 632.0005
+* 2025-07-30: 632.5931 (LATEST EMA VALUE)
+
+
+MACD with fast_period 12, slow_period 26 and signal_period 9 values for the last 30 days:
+* 2025-06-19: 6.4514
+* 2025-06-20: 5.718
+* 2025-06-23: 5.5466
+* 2025-06-24: 5.8779
+* 2025-06-25: 6.0976
+* 2025-06-26: 6.5792
+* 2025-06-27: 7.124
+* 2025-06-30: 7.7042
+* 2025-07-01: 8.0551
+* 2025-07-02: 8.4615
+* 2025-07-03: 9.0736
+* 2025-07-04: 9.4497
+* 2025-07-07: 9.265
+* 2025-07-08: 8.9876
+* 2025-07-09: 8.9646
+* 2025-07-10: 8.9848
+* 2025-07-11: 8.7227
+* 2025-07-14: 8.5129
+* 2025-07-15: 8.0385
+* 2025-07-16: 7.7412
+* 2025-07-17: 7.7247
+* 2025-07-18: 7.5871
+* 2025-07-21: 7.4878
+* 2025-07-22: 7.3318
+* 2025-07-23: 7.5528
+* 2025-07-24: 7.6566
+* 2025-07-25: 7.8645
+* 2025-07-28: 7.925
+* 2025-07-29: 7.7481
+* 2025-07-30: 7.5211 (LATEST MACD VALUE)
+
+
+RSI with time_period of 21 days values for the last 30 days:
+* 2025-06-19: 57.6137
+* 2025-06-20: 55.4894
+* 2025-06-23: 58.4757
+* 2025-06-24: 61.5361
+* 2025-06-25: 61.6881
+* 2025-06-26: 63.7878
+* 2025-06-27: 65.0742
+* 2025-06-30: 66.2901
+* 2025-07-01: 66.1257
+* 2025-07-02: 67.3175
+* 2025-07-03: 69.2982
+* 2025-07-04: 69.2982
+* 2025-07-07: 65.1498
+* 2025-07-08: 64.8524
+* 2025-07-09: 66.6039
+* 2025-07-10: 67.4106
+* 2025-07-11: 65.3389
+* 2025-07-14: 65.9336
+* 2025-07-15: 63.3724
+* 2025-07-16: 64.5003
+* 2025-07-17: 66.4903
+* 2025-07-18: 66.0224
+* 2025-07-21: 66.6598
+* 2025-07-22: 66.7093
+* 2025-07-23: 69.5375
+* 2025-07-24: 69.6438
+* 2025-07-25: 70.9997
+* 2025-07-28: 70.8014
+* 2025-07-29: 68.687
+* 2025-07-30: 68.687 (LATEST RSI VALUE)
+
+
+SMA with time_period of 21 days values for the last 30 days:
+* 2025-06-19: 594.1195
+* 2025-06-20: 594.6524
+* 2025-06-23: 595.6543
+* 2025-06-24: 596.9719
+* 2025-06-25: 597.7324
+* 2025-06-26: 598.8819
+* 2025-06-27: 600.0657
+* 2025-06-30: 601.421
+* 2025-07-01: 602.6086
+* 2025-07-02: 603.7686
+* 2025-07-03: 605.169
+* 2025-07-04: 606.7067
+* 2025-07-07: 607.7324
+* 2025-07-08: 608.7162
+* 2025-07-09: 609.7152
+* 2025-07-10: 610.88
+* 2025-07-11: 611.8262
+* 2025-07-14: 613.1505
+* 2025-07-15: 614.0771
+* 2025-07-16: 615.3481
+* 2025-07-17: 616.8052
+* 2025-07-18: 618.2405
+* 2025-07-21: 619.8829
+* 2025-07-22: 621.25
+* 2025-07-23: 622.5562
+* 2025-07-24: 623.8562
+* 2025-07-25: 625.0576
+* 2025-07-28: 626.1067
+* 2025-07-29: 626.9357
+* 2025-07-30: 627.7743 (LATEST SMA VALUE)
+
+
+CCI with time_period of 20 days values for the last 30 days:
+* 2025-06-19: 44.497
+* 2025-06-20: 3.7455
+* 2025-06-23: 21.9899
+* 2025-06-24: 152.7878
+* 2025-06-25: 160.8481
+* 2025-06-26: 197.958
+* 2025-06-27: 209.6745
+* 2025-06-30: 216.2739
+* 2025-07-01: 173.8111
+* 2025-07-02: 158.5075
+* 2025-07-03: 176.4863
+* 2025-07-04: 147.5574
+* 2025-07-07: 100.6334
+* 2025-07-08: 87.3811
+* 2025-07-09: 94.5558
+* 2025-07-10: 97.5904
+* 2025-07-11: 77.1489
+* 2025-07-14: 74.7185
+* 2025-07-15: 70.3464
+* 2025-07-16: 53.4823
+* 2025-07-17: 88.7445
+* 2025-07-18: 96.9768
+* 2025-07-21: 118.1849
+* 2025-07-22: 98.8115
+* 2025-07-23: 163.8059
+* 2025-07-24: 188.3157
+* 2025-07-25: 186.7944
+* 2025-07-28: 161.0423
+* 2025-07-29: 130.5706
+* 2025-07-30: 114.6006 (LATEST CCI VALUE)
+
+
+MFI with time_period of 14 days values for the last 30 days:
+* 2025-06-19: 63.3146
+* 2025-06-20: 54.8144
+* 2025-06-23: 55.9194
+* 2025-06-24: 56.4275
+* 2025-06-25: 64.6204
+* 2025-06-26: 65.109
+* 2025-06-27: 66.3245
+* 2025-06-30: 67.2535
+* 2025-07-01: 60.2641
+* 2025-07-02: 60.4262
+* 2025-07-03: 67.8644
+* 2025-07-04: 65.0815
+* 2025-07-07: 65.4068
+* 2025-07-08: 66.5126
+* 2025-07-09: 68.8685
+* 2025-07-10: 77.668
+* 2025-07-11: 69.9852
+* 2025-07-14: 69.5073
+* 2025-07-15: 69.9851
+* 2025-07-16: 60.5004
+* 2025-07-17: 59.7986
+* 2025-07-18: 58.6027
+* 2025-07-21: 66.4778
+* 2025-07-22: 59.1132
+* 2025-07-23: 60.0746
+* 2025-07-24: 63.1591
+* 2025-07-25: 70.571
+* 2025-07-28: 76.8676
+* 2025-07-29: 70.0206
+* 2025-07-30: 68.0064 (LATEST MFI VALUE)
+
+
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+# Agent: Technical Indicator Summarizer
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+## Final Answer:
+The technical landscape for SPDR S&P 500 ETF Trust (SPY) reveals a nuanced but cautiously optimistic picture. The
+current price of approximately 635.26 indicates a slight decline of about 0.26% from the previous day's close, with
+intraday trading reflecting some volatility within the day’s high of approximately 638.67 and a low of about 634.34.
+This places the ETF near its recent 52-week high of 638.67, suggesting it remains within its strong annual trading
+range, which spans from 481.80 to 638.67, with a recent close close to the upper boundary.
+
+The momentum indicators point towards a mildly bullish yet somewhat consolidating trend. The 10-day EMA at 632.59 sits
+above the 21-day SMA of 627.77, indicating recent short-term price strength supporting upward momentum. The RSI at
+68.69, approaching the overbought threshold, suggests that the ETF is experiencing strong buying pressure, though not
+yet in overbought territory, supporting a continued but cautious upward bias.
+
+Volatility and trend strength are highlighted by the ADX at 24.21, signaling a developing trend that isn’t yet highly
+dominant but shows increasing momentum. Bollinger Bands with an upper band at 638.85 and lower at 617.43, combined with
+the current price near the upper band, suggest the ETF is trending toward short-term overbought conditions, which could
+imply some consolidation or minor pullback ahead.
+
+The MACD remains slightly negative at -0.22 on the latest reading, indicating the potential for short-term momentum to
+slow or momentarily weaken, though the MACD histogram's small negative value suggests diminishing bearish divergence.
+Conversely, the Percent B at approximately 0.84 indicates that the current price is close to the upper band of the
+Bollinger envelope, reinforcing near-term overbought signals.
+
+Oscillators such as Stochastic Slow (83.46/87.14) and StochRSI (0.0/28.46) suggest overbought conditions, hinting at
+some short-term caution. The RSI's high reading of nearly 69, along with a Willr value of -16.54 (deep into the
+overbought zone), reinforce this view. The CCI at 114.60, above the +100 threshold, further supports an overbought
+signal, although it also indicates strong positive trend momentum.
+
+Trend strength and valuation metrics show that the ETF is trading above its 21-day SMA (627.77 vs. 635.26), emphasizing
+bullishness in the recent period. The Ichimoku Cloud’s leading span A at 595.80 and span B at 558.16 suggest that the
+overall longer-term trend remains bullish, with the current price well above the cloud and within the upward trending
+support levels.
+
+Volume analysis shows a current volume of about 60.5 million compared to an average volume roughly 66.1 million,
+signaling slightly lower trading activity but no abnormal divergence. The MFI at 68.01 indicates healthy money flow into
+the ETF, aligning with the bullish phase.
+
+In summary, the technical indicators collectively suggest that SPY is in a strong upward trend approaching overbought
+conditions. The momentum remains positive, supported by rising short-term moving averages, high RSI, and bullish
+Bollinger Band positioning. However, overbought oscillators and their signals advise caution for near-term traders, as a
+potential consolidation or minor retracement could occur before any sustained upward move continues. Overall, the market
+appears to be maintaining a bullish posture with current technicals indicating continued strength but with signs of
+possible short-term stabilization or pause.
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+│   Assigned to: Social Sentiment Summarizer
+│   Status: ✅ Completed
+└── 📋 Task: 2f3d9dd1-9443-44c7-8c48-de09c95902e7
+    Assigned to: Technical Indicator Summarizer
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: 2f3d9dd1-9443-44c7-8c48-de09c95902e7                                                                          │
+│  Agent: Technical Indicator Summarizer                                                                               │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: Fundamental Analysis Expert
+## Task: Using the provided fundamental analysis data—which includes financial ratios, analyst ratings, intrinsic value
+calculations, and comprehensive financial metrics from multiple sources—generate a narrative summary of the fundamental
+performance and investment outlook for SPDR S&P 500 ETF Trust. Base your analysis solely on this data without
+referencing any external information. This is the ONLY data you must use for your task:
+No fundamental data found for SPDR S&P 500 ETF Trust Stock Price and Quote (SPY)
+
+================================================================================
+
+Error fetching TipRanks data for SPY: 471 Client Error:  for url: https://www.tipranks.com/stocks/spy/stock-analysis
+
+================================================================================
+
+Error fetching TipRanks forecast data for SPY: 404 Client Error: Not Found for url:
+https://www.tipranks.com/stocks/spy/forecast
+
+================================================================================
+
+ValueInvesting.io Intrinsic Value Analysis for SPY:
+
+**SPY Intrinsic Value Overview:**
+• **Valuation Assessment**: Undervalued
+• **Valuation Models**: Discounted Cash Flow
+
+
+**Valuation Summary:**
+
+• Valuation summary table not available in current format
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+# Agent: Fundamental Analysis Expert
+## Final Answer:
+Based solely on the provided fundamental analysis data, the SPDR S&P 500 ETF Trust (SPY) exhibits signs of being
+fundamentally undervalued according to intrinsic value assessments, with valuation models based on discounted cash flow
+indicating that the current market price is below its intrinsic worth. Although specific valuation metrics such as P/E
+ratios, dividend yields, or balance sheet details are not available, the intrinsic value analysis suggests a positive
+outlook from a valuation perspective, implying potential for upside appreciation.
+
+Additionally, the lack of current analyst ratings or consensus data limits a comprehensive view of expert sentiment;
+however, the intrinsic valuation being undervalued strengthens the case for SPY as a favorable investment opportunity
+for value-oriented investors. The absence of detailed price momentum or valuation ratios in the provided data precludes
+precise short-term trend analysis, but the fundamental signals point towards a healthy valuation standing relative to
+its intrinsic worth.
+
+Moreover, macroeconomic and geopolitical factors noted in recent context—such as a softer labor market, trade policy
+developments, and market-wide economic conditions—may influence future performance, but in the absence of explicit
+fundamental impacts or updated earnings data, the core fundamental stand indicates that SPY is currently undervalued
+based on discounted cash flow analysis.
+
+In conclusion, the fundamental data suggests that SPDR S&P 500 ETF Trust is fundamentally undervalued, with intrinsic
+valuation modeling supporting a positive investment thesis. While direct sentiment and technical indicators are not
+provided within the core data, the valuation stance alone positions SPY as a potentially attractive investment for those
+seeking value, assuming the broader macroeconomic environment remains stable. The undervaluation signals a favorable
+fundamental outlook, with room for potential price appreciation aligned with long-term growth prospects.
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+│   Assigned to: Social Sentiment Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: 2f3d9dd1-9443-44c7-8c48-de09c95902e7
+│   Assigned to: Technical Indicator Summarizer
+│   Status: ✅ Completed
+└── 📋 Task: 475ae185-1e0d-47b1-94a3-3fc3ecebb11e
+    Assigned to: Fundamental Analysis Expert
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: 475ae185-1e0d-47b1-94a3-3fc3ecebb11e                                                                          │
+│  Agent: Fundamental Analysis Expert                                                                                  │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: TimeGPT Forecast Analyst
+## Task: Analyze the TimeGPT forecast data for SPDR S&P 500 ETF Trust. The forecast provides the  predicted percentage
+(%) daily return for the stock on a specific date. A positive  percentage indicates a predicted increase in stock price,
+while a negative percentage  indicates a predicted decrease.
+Forecast date for SPDR S&P 500 ETF Trust: 2025-09-01
+Forecast daily return: 0.0352 %
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+# Agent: TimeGPT Forecast Analyst
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+## Final Answer:
+The TimeGPT forecast for the SPDR S&P 500 ETF Trust (SPY) on the date of September 1, 2025, indicates a predicted daily
+return of 0.0352%. This positive percentage suggests a bullish outlook for the ETF, signaling a potential increase in
+the stock price on that date. Given the current lack of specific updates affecting SPY and a neutral sentiment across
+social media platforms, this forecast, alongside strong technical indicators showing an upward trend, implies that
+traders may consider entering long positions or holding their existing investments in anticipation of a slight price
+increase. However, traders should be mindful of potential overbought signals in the technical analysis that may lead to
+short-term consolidation or pullbacks.
+
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+│   Assigned to: Social Sentiment Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: 2f3d9dd1-9443-44c7-8c48-de09c95902e7
+│   Assigned to: Technical Indicator Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: 475ae185-1e0d-47b1-94a3-3fc3ecebb11e
+│   Assigned to: Fundamental Analysis Expert
+│   Status: ✅ Completed
+└── 📋 Task: 168f9cfc-0cb9-48f5-be23-f6517805793f
+    Assigned to: TimeGPT Forecast Analyst
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: 168f9cfc-0cb9-48f5-be23-f6517805793f                                                                          │
+│  Agent: TimeGPT Forecast Analyst                                                                                     │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+🚀 Crew: crew
+├── 📋 Task: 67f615f2-70ba-49bb-bd4f-5935a7532bf1
+│   Assigned to: News Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: d85a8860-9eea-4c25-b43a-d9ac75aa7208
+│   Assigned to: Social Sentiment Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: 2f3d9dd1-9443-44c7-8c48-de09c95902e7
+│   Assigned to: Technical Indicator Summarizer
+│   Status: ✅ Completed
+├── 📋 Task: 475ae185-1e0d-47b1-94a3-3fc3ecebb11e
+│   Assigned to: Fundamental Analysis Expert
+│   Status: ✅ Completed
+├── 📋 Task: 168f9cfc-0cb9-48f5-be23-f6517805793f
+│   Assigned to: TimeGPT Forecast Analyst
+│   Status: ✅ Completed
+└── 📋 Task: ea828abe-71a8-47d9-820b-d7a18a2284df
+    Assigned to: Market Overview Analyst
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: ea828abe-71a8-47d9-820b-d7a18a2284df                                                                          │
+│  Agent: Market Overview Analyst                                                                                      │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────── Crew Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Completed                                                                                            │
+│  Name: crew                                                                                                          │
+│  ID: 97e4cae1-5264-42d1-acda-de2ce9a17d5d                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭─────────────────────────────────────────────── Crew Execution Started ───────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Started                                                                                              │
+│  Name: crew                                                                                                          │
+│  ID: ed9c7171-c14f-4a25-b3fd-1096ce3a4a98                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Agent: Day Trader Advisor
+## Task: As a day trader advisor, analyze the comprehensive summaries for SPDR S&P 500 ETF Trust to determine the MOST
+LIKELY  single-day trading outcome. You will receive two sets of critical information:
+INDIVIDUAL STOCK ANALYSIS SUMMARIES: 1. News Summary: - No specific updates or changes directly affecting the SPDR S&P
+500 ETF Trust (SPY) were reported in the recent news articles; the headlines primarily focus on macroeconomic and
+geopolitical developments.
+- Market-wide factors such as US job market cooling, with declining job openings indicating a softer labor market, could
+influence investor sentiment and the performance of SPY.
+- Broader international and trade policy developments, including potential tariffs on India and U.S. approval of Nvidia
+chip shipments to China, may impact sectors within the S&P 500, indirectly affecting SPY.
+- The news regarding high-income ETFs and strategies suggests investors are exploring income-focused investment options,
+which may influence ETF flows and investor interest in SPY.
+- Overall, there are no specific fundamental or technical updates regarding SPY; investors should monitor macroeconomic
+trends, trade policies, and sector performance for potential impacts on the ETF.
+2. Sentiment Summary: Based solely on the provided sentiment data, the overall social sentiment for the SPDR S&P 500 ETF
+Trust (SPY) appears to be neutral and indeterminate, with no expressed bullish, bearish, or neutral sentiments from
+social media users. The sentiment counts are all zero, indicating a lack of active or explicit opinion, discussion, or
+emotional stance towards SPY within the monitored social channels. Additionally, the absence of messages suggests that
+there is currently no notable social engagement, commentary, or sentiment-driven activity related to this ETF. In
+summary, the social sentiment landscape for SPY at this moment is entirely dormant, reflecting neither enthusiasm nor
+concern among social media participants.
+3. Technical Indicators Summary: The technical landscape for SPDR S&P 500 ETF Trust (SPY) reveals a nuanced but
+cautiously optimistic picture. The current price of approximately 635.26 indicates a slight decline of about 0.26% from
+the previous day's close, with intraday trading reflecting some volatility within the day’s high of approximately 638.67
+and a low of about 634.34. This places the ETF near its recent 52-week high of 638.67, suggesting it remains within its
+strong annual trading range, which spans from 481.80 to 638.67, with a recent close close to the upper boundary.
+
+The momentum indicators point towards a mildly bullish yet somewhat consolidating trend. The 10-day EMA at 632.59 sits
+above the 21-day SMA of 627.77, indicating recent short-term price strength supporting upward momentum. The RSI at
+68.69, approaching the overbought threshold, suggests that the ETF is experiencing strong buying pressure, though not
+yet in overbought territory, supporting a continued but cautious upward bias.
+
+Volatility and trend strength are highlighted by the ADX at 24.21, signaling a developing trend that isn’t yet highly
+dominant but shows increasing momentum. Bollinger Bands with an upper band at 638.85 and lower at 617.43, combined with
+the current price near the upper band, suggest the ETF is trending toward short-term overbought conditions, which could
+imply some consolidation or minor pullback ahead.
+
+The MACD remains slightly negative at -0.22 on the latest reading, indicating the potential for short-term momentum to
+slow or momentarily weaken, though the MACD histogram's small negative value suggests diminishing bearish divergence.
+Conversely, the Percent B at approximately 0.84 indicates that the current price is close to the upper band of the
+Bollinger envelope, reinforcing near-term overbought signals.
+
+Oscillators such as Stochastic Slow (83.46/87.14) and StochRSI (0.0/28.46) suggest overbought conditions, hinting at
+some short-term caution. The RSI's high reading of nearly 69, along with a Willr value of -16.54 (deep into the
+overbought zone), reinforce this view. The CCI at 114.60, above the +100 threshold, further supports an overbought
+signal, although it also indicates strong positive trend momentum.
+
+Trend strength and valuation metrics show that the ETF is trading above its 21-day SMA (627.77 vs. 635.26), emphasizing
+bullishness in the recent period. The Ichimoku Cloud’s leading span A at 595.80 and span B at 558.16 suggest that the
+overall longer-term trend remains bullish, with the current price well above the cloud and within the upward trending
+support levels.
+
+Volume analysis shows a current volume of about 60.5 million compared to an average volume roughly 66.1 million,
+signaling slightly lower trading activity but no abnormal divergence. The MFI at 68.01 indicates healthy money flow into
+the ETF, aligning with the bullish phase.
+
+In summary, the technical indicators collectively suggest that SPY is in a strong upward trend approaching overbought
+conditions. The momentum remains positive, supported by rising short-term moving averages, high RSI, and bullish
+Bollinger Band positioning. However, overbought oscillators and their signals advise caution for near-term traders, as a
+potential consolidation or minor retracement could occur before any sustained upward move continues. Overall, the market
+appears to be maintaining a bullish posture with current technicals indicating continued strength but with signs of
+possible short-term stabilization or pause.
+4. Fundamental Analysis Summary: Based solely on the provided fundamental analysis data, the SPDR S&P 500 ETF Trust
+(SPY) exhibits signs of being fundamentally undervalued according to intrinsic value assessments, with valuation models
+based on discounted cash flow indicating that the current market price is below its intrinsic worth. Although specific
+valuation metrics such as P/E ratios, dividend yields, or balance sheet details are not available, the intrinsic value
+analysis suggests a positive outlook from a valuation perspective, implying potential for upside appreciation.
+
+Additionally, the lack of current analyst ratings or consensus data limits a comprehensive view of expert sentiment;
+however, the intrinsic valuation being undervalued strengthens the case for SPY as a favorable investment opportunity
+for value-oriented investors. The absence of detailed price momentum or valuation ratios in the provided data precludes
+precise short-term trend analysis, but the fundamental signals point towards a healthy valuation standing relative to
+its intrinsic worth.
+
+Moreover, macroeconomic and geopolitical factors noted in recent context—such as a softer labor market, trade policy
+developments, and market-wide economic conditions—may influence future performance, but in the absence of explicit
+fundamental impacts or updated earnings data, the core fundamental stand indicates that SPY is currently undervalued
+based on discounted cash flow analysis.
+
+In conclusion, the fundamental data suggests that SPDR S&P 500 ETF Trust is fundamentally undervalued, with intrinsic
+valuation modeling supporting a positive investment thesis. While direct sentiment and technical indicators are not
+provided within the core data, the valuation stance alone positions SPY as a potentially attractive investment for those
+seeking value, assuming the broader macroeconomic environment remains stable. The undervaluation signals a favorable
+fundamental outlook, with room for potential price appreciation aligned with long-term growth prospects.
+5. TimeGPT Forecast Summary: The TimeGPT forecast for the SPDR S&P 500 ETF Trust (SPY) on the date of September 1, 2025,
+indicates a predicted daily return of 0.0352%. This positive percentage suggests a bullish outlook for the ETF,
+signaling a potential increase in the stock price on that date. Given the current lack of specific updates affecting SPY
+and a neutral sentiment across social media platforms, this forecast, alongside strong technical indicators showing an
+upward trend, implies that traders may consider entering long positions or holding their existing investments in
+anticipation of a slight price increase. However, traders should be mindful of potential overbought signals in the
+technical analysis that may lead to short-term consolidation or pullbacks.
+
+STOCK MARKET ANALYSIS SUMMARIES: 6. Stock Market Overview Summary: Current VIX level and volatility assessment: The
+latest VIX value is 15.67, reflecting a daily decrease of 1.94%. This low level indicates a low-volatility environment,
+suggesting that the market is currently experiencing a period of stable conditions without significant fear or
+uncertainty among investors. Over the past 30 days, the VIX has been trending downward from a peak of 21.6, reinforcing
+the current low volatility sentiment.
+
+Key global market trends and movements: The global market is influenced by several key indicators. The EUR/USD exchange
+rate has shown a slight upward trend, with the latest value at 1.1555, indicating a stable Euro compared to the US
+dollar. Bitcoin's latest price is 118043.5, with a modest change of 0.09% from the previous day, reflecting some
+stability in the cryptocurrency market. Unfortunately, gold data retrieval failed, leaving a gap in precious metal
+analysis which typically serves as a hedge against market volatility. Analysis of the China (MCHI ETF) and India (INDA
+ETF) indices shows modest movements, with China's latest value at 58.56 and India's at 53.49, both suggesting relatively
+stable market conditions within emerging markets. The US 10-Year Treasury Yield closed at 3.916% and the US 2-Year Yield
+at 3.916%, with minor fluctuations signaling ongoing interest rate stability.
+
+Risk environment and market sentiment interpretation: Presently, the overall market sentiment is characterized by a
+low-risk environment, as indicated by the low VIX. The absence of significant news regarding SPY implies that
+macroeconomic factors, such as a cooling labor market, could be contributing to softer investor sentiment. The lack of
+engagement or sentiment from social media users regarding SPY highlights a neutral crowd sentiment, which suggests
+caution as traders may await clearer signals before making major moves.
+
+Implications for trading strategies and risk management: With the current low VIX and stable market conditions, traders
+may consider adopting strategies that capitalize on continued price movements in assets like SPY and Bitcoin. Given the
+overall cautious sentiment and market consolidations observed in technical indicators, employing a cautious trading
+approach with options for covered calls or protective puts to mitigate short-term risks would be prudent.
+
+Overall stock market analysis: The concluding assessment indicates that the SPDR S&P 500 ETF Trust (SPY) is likely in a
+favorable position amid a low-volatility landscape, which typically favors upward price movements. Despite hovering near
+its 52-week high, the technical indicators suggest limited short-term consolidation or pullback possibilities due to
+overbought conditions. The individual asset analysis supports a conditional bullish outlook, yet the comprehensive
+picture highlights a need for caution given the presence of economic uncertainty. Strong fundamentals point toward SPY
+being fundamentally undervalued, reflecting potential for upside. Traders should remain vigilant towards macroeconomic
+conditions and monitor closely for any shifts in sentiment that might influence market dynamics.
+
+Overall, market conditions appear stable and low-risk, creating a conducive environment for value-oriented investment
+strategies in ETFs like SPY, while trader caution is advised due to technical signs of overbought conditions.
+7. Market News Summary: - No specific updates or changes directly affecting the SPDR S&P 500 ETF Trust (SPY) were
+reported in the recent news articles; the headlines primarily focus on macroeconomic and geopolitical developments.
+- Market-wide factors such as US job market cooling, with declining job openings indicating a softer labor market, could
+influence investor sentiment and the performance of SPY.
+- Broader international and trade policy developments, including potential tariffs on India and U.S. approval of Nvidia
+chip shipments to China, may impact sectors within the S&P 500, indirectly affecting SPY.
+- The news regarding high-income ETFs and strategies suggests investors are exploring income-focused investment options,
+which may influence ETF flows and investor interest in SPY.
+- Overall, there are no specific fundamental or technical updates regarding SPY; investors should monitor macroeconomic
+trends, trade policies, and sector performance for potential impacts on the ETF.
+8. Market Sentiment Summary: Based solely on the provided sentiment data, the overall social sentiment for the SPDR S&P
+500 ETF Trust (SPY) appears to be neutral and indeterminate, with no expressed bullish, bearish, or neutral sentiments
+from social media users. The sentiment counts are all zero, indicating a lack of active or explicit opinion, discussion,
+or emotional stance towards SPY within the monitored social channels. Additionally, the absence of messages suggests
+that there is currently no notable social engagement, commentary, or sentiment-driven activity related to this ETF. In
+summary, the social sentiment landscape for SPY at this moment is entirely dormant, reflecting neither enthusiasm nor
+concern among social media participants.
+9. Market Technical Indicators Summary: The technical landscape for SPDR S&P 500 ETF Trust (SPY) reveals a nuanced but
+cautiously optimistic picture. The current price of approximately 635.26 indicates a slight decline of about 0.26% from
+the previous day's close, with intraday trading reflecting some volatility within the day’s high of approximately 638.67
+and a low of about 634.34. This places the ETF near its recent 52-week high of 638.67, suggesting it remains within its
+strong annual trading range, which spans from 481.80 to 638.67, with a recent close close to the upper boundary.
+
+The momentum indicators point towards a mildly bullish yet somewhat consolidating trend. The 10-day EMA at 632.59 sits
+above the 21-day SMA of 627.77, indicating recent short-term price strength supporting upward momentum. The RSI at
+68.69, approaching the overbought threshold, suggests that the ETF is experiencing strong buying pressure, though not
+yet in overbought territory, supporting a continued but cautious upward bias.
+
+Volatility and trend strength are highlighted by the ADX at 24.21, signaling a developing trend that isn’t yet highly
+dominant but shows increasing momentum. Bollinger Bands with an upper band at 638.85 and lower at 617.43, combined with
+the current price near the upper band, suggest the ETF is trending toward short-term overbought conditions, which could
+imply some consolidation or minor pullback ahead.
+
+The MACD remains slightly negative at -0.22 on the latest reading, indicating the potential for short-term momentum to
+slow or momentarily weaken, though the MACD histogram's small negative value suggests diminishing bearish divergence.
+Conversely, the Percent B at approximately 0.84 indicates that the current price is close to the upper band of the
+Bollinger envelope, reinforcing near-term overbought signals.
+
+Oscillators such as Stochastic Slow (83.46/87.14) and StochRSI (0.0/28.46) suggest overbought conditions, hinting at
+some short-term caution. The RSI's high reading of nearly 69, along with a Willr value of -16.54 (deep into the
+overbought zone), reinforce this view. The CCI at 114.60, above the +100 threshold, further supports an overbought
+signal, although it also indicates strong positive trend momentum.
+
+Trend strength and valuation metrics show that the ETF is trading above its 21-day SMA (627.77 vs. 635.26), emphasizing
+bullishness in the recent period. The Ichimoku Cloud’s leading span A at 595.80 and span B at 558.16 suggest that the
+overall longer-term trend remains bullish, with the current price well above the cloud and within the upward trending
+support levels.
+
+Volume analysis shows a current volume of about 60.5 million compared to an average volume roughly 66.1 million,
+signaling slightly lower trading activity but no abnormal divergence. The MFI at 68.01 indicates healthy money flow into
+the ETF, aligning with the bullish phase.
+
+In summary, the technical indicators collectively suggest that SPY is in a strong upward trend approaching overbought
+conditions. The momentum remains positive, supported by rising short-term moving averages, high RSI, and bullish
+Bollinger Band positioning. However, overbought oscillators and their signals advise caution for near-term traders, as a
+potential consolidation or minor retracement could occur before any sustained upward move continues. Overall, the market
+appears to be maintaining a bullish posture with current technicals indicating continued strength but with signs of
+possible short-term stabilization or pause.
+10. Market TimeGPT Forecast Summary: The TimeGPT forecast for the SPDR S&P 500 ETF Trust (SPY) on the date of September
+1, 2025, indicates a predicted daily return of 0.0352%. This positive percentage suggests a bullish outlook for the ETF,
+signaling a potential increase in the stock price on that date. Given the current lack of specific updates affecting SPY
+and a neutral sentiment across social media platforms, this forecast, alongside strong technical indicators showing an
+upward trend, implies that traders may consider entering long positions or holding their existing investments in
+anticipation of a slight price increase. However, traders should be mindful of potential overbought signals in the
+technical analysis that may lead to short-term consolidation or pullbacks.
+
+
+Your task is to synthesize ALL this information to provide the most accurate prediction for SPDR S&P 500 ETF Trust's
+performance during a single trading day (position opened in the morning, closed at end of day).
+Focus on maximizing return/risk ratio - if you predict Very Bullish, it means the potential positive return
+significantly outweighs the downside risk. If you predict Very Bearish, it means the potential negative return
+significantly outweighs the upside potential.
+You MUST provide exactly ONE outcome from: Very Bearish, Bearish, Neutral, Bullish, Very Bullish.
+
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+    Status: Executing Task...
+    └── 🧠 Thinking...14:30:00 - LiteLLM:INFO: utils.py:1185 - Wrapper: Completed Call, calling success_handler
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+
+
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+# Agent: Day Trader Advisor
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+## Final Answer:
+1. RECOMMENDATION: Bullish
+2. CONFIDENCE LEVEL: Medium
+3. KEY FACTORS:
+- Technical Indicators: The ETF exhibits strong short-term momentum with rising short-term moving averages (EMA above
+SMA), high RSI (~69), and trending near its 52-week high, indicating continued upside potential.
+- Overbought Signals: Oscillators such as Willr, Stochastic, and CCI show overbought conditions, suggesting caution and
+potential for short-term consolidation.
+- Fundamental and Market Context: The ETF is undervalued in intrinsic valuation models, supporting upward movement;
+macroeconomic factors like a softer labor market and stable geopolitical environment favor moderate optimism.
+- Market Environment: Low VIX indicates low volatility and stable overall market conditions, with global indicators
+suggesting calm trading atmosphere.
+- TimeGPT Forecast: Slight positive daily return prediction (+3.52%) reinforces near-term bullish bias, despite no fresh
+news catalysts.
+4. RETURN/RISK ASSESSMENT:
+The current technical strength combined with fundamental undervaluation creates a favorable risk/reward ratio, pointing
+towards a modest but continued upward move for the day. Although overbought signals could trigger a short-term pullback,
+the broader low-volatility environment and intrinsic undervaluation make the risk of reversal manageable, thus
+justifying a bullish stance for same-day trades aiming for an increase with controlled risk.
+5. MARKET CONTEXT:
+While macroeconomic indicators like a cooling labor market and trade developments inject some caution, technical signals
+and valuation suggest that SPY still has room for a measured upward push. The lack of active social sentiment and stable
+global markets contribute to low external risk, enhancing the confidence in a bullish move but with awareness of
+potential short-term consolidation.
+6. TRADING RATIONALE:
+Positioning long early in the day to capitalize on the prevailing upward momentum, given technicals but setting tight
+stops to manage overbought risks. The technical indicators suggest the move will likely be a gentle advance rather than
+a rapid surge, so a cautious buy targeting near the high of the day, with plans to exit before overbought oscillators
+trigger a reversal. The overall environment supports a controlled, profit-oriented bullish trade aiming to maximize
+return/risk ratio without exposing to unnecessary downside.
+
+
+🚀 Crew: crew
+└── 📋 Task: de468688-acb2-4963-985d-c7f50dba4db9
+    Assigned to: Day Trader Advisor
+    Status: ✅ Completed
+╭────────────────────────────────────────────────── Task Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Task Completed                                                                                                      │
+│  Name: de468688-acb2-4963-985d-c7f50dba4db9                                                                          │
+│  Agent: Day Trader Advisor                                                                                           │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────── Crew Completion ───────────────────────────────────────────────────╮
+│                                                                                                                      │
+│  Crew Execution Completed                                                                                            │
+│  Name: crew                                                                                                          │
+│  ID: ed9c7171-c14f-4a25-b3fd-1096ce3a4a98                                                                            │
+│                                                                                                                      │
+│                                                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\user\AITradingCrew\ai_trading_crew\main.py", line 161, in <module>
+    main()
+  File "C:\Users\user\AITradingCrew\ai_trading_crew\main.py", line 157, in main
+    asyncio.run(run_async_execution())
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\user\AITradingCrew\ai_trading_crew\main.py", line 46, in run_async_execution
+    await process_stock_symbol_async(
+  File "C:\Users\user\AITradingCrew\ai_trading_crew\stock_processor.py", line 187, in process_stock_symbol
+    json.dump(day_trader_result, f, indent=2)
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\json\__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\json\encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "C:\Users\user\AppData\Local\r-miniconda\envs\crew\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type CrewOutput is not JSON serializable
+(crew) PS C:\Users\user\AITradingCrew>

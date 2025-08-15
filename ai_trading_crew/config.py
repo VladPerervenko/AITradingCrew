@@ -7,6 +7,9 @@ from crewai import LLM
 from datetime import datetime, timedelta
 
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Suppress Pydantic v2 deprecation warnings from dependencies
 warnings.filterwarnings(
     "ignore",
@@ -18,7 +21,9 @@ warnings.filterwarnings(
 # Valid LLM providers
 VALID_PROVIDERS = ["OPENROUTER"]
 
-BASE_SYMBOLS = ["AAPL", "NVDA", "MSFT", "AMZN", "GLD", "GOOGL", "TSLA"]
+#BASE_SYMBOLS = ["EUR/USD"]
+
+BASE_SYMBOLS = ["AAPL", "NVDA", "MSFT", "AMZN", "GOOGL", "TSLA"]
 
 # top_30_us = [
 #     "MSFT", "NVDA", "AAPL", "AMZN", "GOOGL", "META", "TSLA", "AVGO", "BRK.B", "TSM",
@@ -63,7 +68,7 @@ class Settings(BaseSettings):
     )
 
     NEWS_FETCH_LIMIT: int = Field(
-        default=20,
+        default=30,
         description="Maximum number of news articles to fetch per symbol."
     )
     SOCIAL_FETCH_LIMIT: int = Field(
@@ -75,8 +80,8 @@ class Settings(BaseSettings):
             "adx_time_period": 21,
             "bbands_time_period": 20,
             "ema_time_period": 10,
-            "macd_fast_period": 12,
-            "macd_slow_period": 26,
+            "macd_fast_period": 13,
+            "macd_slow_period": 89,
             "percent_b_time_period": 21,
             "rsi_time_period": 21,
             "sma_time_period": 21,
@@ -126,7 +131,7 @@ def create_default_llm(api: str, model: str, url: str) -> LLM:
         api_key=get_env_var(api),
         model=get_env_var(model),
         base_url=get_env_var(url),
-        temperature=0.0
+        temperature=0.7
     )
 
 
@@ -146,10 +151,10 @@ def extract_provider_name(model_name: str) -> str:
 
 #OpenRouter DeepSeek R1 is used for all LLM operations in the system
 
-DEFAULT_PROJECT_LLM = "OPENROUTER_DEEPSEEK_R1"
-DEFAULT_STOCKTWITS_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
-DEFAULT_TI_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
-DEEPSEEK_OPENROUTER_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
+# DEFAULT_PROJECT_LLM = "OPENROUTER_DEEPSEEK_R1"
+# DEFAULT_STOCKTWITS_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
+# DEFAULT_TI_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
+# DEEPSEEK_OPENROUTER_LLM = create_default_llm("OPENROUTER_API_KEY", "OPENROUTER_DEEPSEEK_R1", "OPENROUTER_BASE_URL")
 
 
 OUTPUT_FOLDER  = "output"
@@ -170,14 +175,24 @@ if not os.path.exists(AGENT_OUTPUTS_FOLDER):
 if not os.path.exists(LOG_FOLDER):
     os.makedirs(LOG_FOLDER)
 
+# Conditional LLM configuration for LLM7.io
+USE_LLM7 = os.getenv("USE_LLM7", "false").lower() == "true"
+DEFAULT_PROJECT_LLM = "OPENROUTER_LLM7" if USE_LLM7 else "OPENROUTER_DEEPSEEK_R1"
+VALID_PROVIDERS.append("OPENROUTER")  # LLM7 uses same prefix convention
 # Extract provider name from model name
 provider_name = extract_provider_name(DEFAULT_PROJECT_LLM)
-
+# Create the default LLM object using the provider name
 PROJECT_LLM = create_default_llm(
-    f"{provider_name}_API_KEY",
-    DEFAULT_PROJECT_LLM,
-    f"{provider_name}_BASE_URL"
-)
+    "OPENROUTER_API_KEY",
+    "OPENROUTER_LLM7",
+    "OPENROUTER_BASE_URL"
+)    
+# ПЕРЕОПРЕДЕЛИТЕ ОСТАЛЬНЫЕ LLM, ЧТОБЫ ОНИ ИСПОЛЬЗОВАЛИ ТОТ ЖЕ ОБЪЕКТ LLM, ЧТО И PROJECT_LLM
+# Это самый простой способ убедиться, что все агенты используют одну и ту же LLM7.io
+DEFAULT_STOCKTWITS_LLM = PROJECT_LLM
+DEFAULT_TI_LLM = PROJECT_LLM
+DEEPSEEK_OPENROUTER_LLM = PROJECT_LLM # <-- Это КЛЮЧЕВОЙ МОМЕНТ для агента Relevant Financial News Filter
+# If USE_LLM7 is True, we will use LLM7.io for all LLM operations
 
 # Instantiate settings object
 settings = Settings()

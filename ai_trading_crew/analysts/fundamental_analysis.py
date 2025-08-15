@@ -62,7 +62,7 @@ def _get_finviz_data(symbol: str) -> str:
                         company_part = parts[1].replace(' Stock Quote', '').strip()
                         if company_part:
                             company_name = company_part
-        except:
+        except Exception:
             pass  # Keep fallback
         
         # Find the table with fundamental data
@@ -96,7 +96,7 @@ def _get_finviz_data(symbol: str) -> str:
                                         # Only use if it's actually a descriptive name, not a CSS class
                                         if extracted_name and not extracted_name.startswith('tooltip_') and len(extracted_name) > len(label):
                                             full_name = extracted_name
-                                except:
+                                except Exception:
                                     pass  # Keep default
                             
                             # Only include fundamental metrics - strict filtering
@@ -375,7 +375,7 @@ def _extract_financial_info(text):
     # Extract Income Statement
     income_start = text.find('Income Statement', fin_start)
     if income_start != -1:
-        result += f"\n**Income Statement:**\n"
+        result += "\n**Income Statement:**\n"
         # Look for score and sentiment after "Income Statement"
         income_section = text[income_start:income_start + 500]
         
@@ -400,7 +400,7 @@ def _extract_financial_info(text):
     # Extract Balance Sheet
     balance_start = text.find('Balance Sheet', fin_start)
     if balance_start != -1:
-        result += f"\n**Balance Sheet:**\n"
+        result += "\n**Balance Sheet:**\n"
         balance_section = text[balance_start:balance_start + 500]
         
         score_match = re.search(r'(\d{1,2})\s*(Very Positive|Positive|Neutral|Negative|Very Negative)', balance_section, re.IGNORECASE)
@@ -421,7 +421,7 @@ def _extract_financial_info(text):
     # Extract Cash Flow
     cashflow_start = text.find('Cash Flow', fin_start)
     if cashflow_start != -1:
-        result += f"\n**Cash Flow:**\n"
+        result += "\n**Cash Flow:**\n"
         cashflow_section = text[cashflow_start:cashflow_start + 500]
         
         score_match = re.search(r'(\d{1,2})\s*(Very Positive|Positive|Neutral|Negative|Very Negative)', cashflow_section, re.IGNORECASE)
@@ -577,7 +577,7 @@ def _extract_analyst_ratings(text, symbol):
     
     # Display breakdown
     if buy_count or hold_count or sell_count:
-        result += f"• **Ratings Breakdown**:\n"
+        result += "• **Ratings Breakdown**:\n"
         if buy_count:
             result += f"  - Buy: {buy_count}\n"
         if hold_count:

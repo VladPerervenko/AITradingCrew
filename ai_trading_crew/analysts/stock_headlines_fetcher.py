@@ -1,9 +1,8 @@
 import datetime
-import time
 import pytz
 import requests
 from bs4 import BeautifulSoup
-from typing import List, Dict, Union, Tuple, Optional
+from typing import List, Union
 from dataclasses import dataclass
 import re
 import json
@@ -65,7 +64,6 @@ def fetch_finviz_news(ticker: str, start_time: datetime.datetime) -> List[NewsIt
         results = []
         est = pytz.timezone('US/Eastern')
         current_date = datetime.datetime.now(est).date()
-        now = datetime.datetime.now(est)
         current_date_reference = None
         for row in rows:
             try:
@@ -491,7 +489,7 @@ def fetch_marketwatch_news(ticker: str, start_time: datetime.datetime) -> List[N
                             if time_tag and time_tag.has_attr('datetime'):
                                 try:
                                     pub_date = dateutil.parser.parse(time_tag['datetime'])
-                                except:
+                                except Exception:
                                     pass
                             
                             # Look for date in text
@@ -510,7 +508,7 @@ def fetch_marketwatch_news(ticker: str, start_time: datetime.datetime) -> List[N
                                             date_str = match.group(1)
                                             pub_date = dateutil.parser.parse(date_str + " ET" if "ET" not in date_str else date_str)
                                             break
-                                        except:
+                                        except Exception:
                                             continue
                             
                             # Use current time as fallback
@@ -625,7 +623,7 @@ def fetch_marketwatch_news(ticker: str, start_time: datetime.datetime) -> List[N
                     if time_tag and time_tag.has_attr('datetime'):
                         try:
                             pub_date = dateutil.parser.parse(time_tag['datetime'])
-                        except:
+                        except Exception:
                             pass
                     
                     if not pub_date:
@@ -634,7 +632,7 @@ def fetch_marketwatch_news(ticker: str, start_time: datetime.datetime) -> List[N
                         if date_tag:
                             try:
                                 pub_date = dateutil.parser.parse(date_tag.get_text(strip=True) + " ET")
-                            except:
+                            except Exception:
                                 pass
                     
                     if not pub_date:
